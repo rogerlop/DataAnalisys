@@ -1,0 +1,78 @@
+---
+title: "Cargado de datos"
+format:
+  html:
+    code-fold: true
+jupyter: python3
+---
+
+
+# Motivación
+
+El primer paso para realizar cualquier análisis de datos son los datos. Para esto, primero hay que obtenerlos desde algún lugar.
+
+# Tipos de archivo
+
+Los archivos de datos se reconocen por la extensión de los mismos, es decir, las letras que vienen después del punto en los nombres[^Nota1]. Los más comunes son:
+
+[^Nota1]: Haciendo click derecho en el archivo y luego ingresando a "propiedades" u "obtener información" es posible identificar la extensión del mismo.
+
+| **Tipo de dato** |   **Extensión**         | **Función**             |
+|:-----------------|:-----------------------:|:-----------------------:|
+| Archivo excel    | _.xls:_ o _.xlsx_       | `read_excel`            |
+| Archivo excel delimitado por comas| _.cvs_ | `read_csv`              |
+| Archivo de texto | _.txt_                  | `read_table`, `read_fwf`|
+
+
+En la tabla anterior también se colocan las funciones contenidas en `pandas` que leen los distintos tipos de archivos.
+
+Adicionalmente, cada una de estas funciones tiene _argumentos_ adicionales para lidiar con ciertos problemas de los datos. Por ejemplo, cuando la primera fila no contiene los nombres de las variables o cuando existen filas en blanco al inicio del documento.
+
+# Descripción de los datos
+
+Antes de leer los datos, se debe especificar dónde tiene que buscarlos `Python`. En mi caso particular, dentro del proyecto hay una carpeta que se llama `data` donde descargué los archivos que se utilizarán en el ejercicio. Los archivos pueden encontrarse [aquí](https://www.kaggle.com/datasets/rikdifos/credit-card-approval-prediction).
+
+Básicamente, los datos están repartidos en dos archivos. El primero, `application_record.csv` guarda información de las solicitudes por tarjetas de crédito mientras que `credit_record.csv` almacena el histórico de los saldos y estados de las tarjetas de crédito desde el momento de su aprobación hasta que los datos fueron tomados.
+
+# Lectura de los datos
+
+En primer lugar, vamos a cargar la librería:
+
+```{python}
+import pandas as pd
+```
+
+
+Una vez cargada, se procede a leer los datos de `application_record.csv`. Para estos, se utiliza la función `read_csv()` contenido en `pandas`:
+
+
+```{python}
+application_record = pd.read_csv("data/application_record.csv")
+```
+
+Para verificar qué hay en los datos utilizamos el método `.head()`:
+
+```{python}
+application_record.head()
+```
+
+Un resumen de los _argumentos_ de la función `read_csv()` es:
+
+| **Argumento**             |                               **Descripción**                                     |
+|:-------------------------:|:----------------------------------------------------------------------------------|
+| `filepath_or_buffer`      | Especifica la ruta del archivo o un objeto de buffer que contiene los datos CSV.  |
+| `sep`                     | Especifica el separador utilizado en el archivo CSV. Por defecto, es una coma (`,`). |
+| `header`                  | Especifica la fila del archivo CSV que se utilizará como encabezado. Por defecto, es la primera fila. |
+| `index_col`               | Especifica la columna del archivo CSV que se utilizará como índice. Por defecto, no hay columna de índice. |
+| `usecols`                 | Especifica las columnas del archivo CSV que se cargarán en el DataFrame.          |
+| `dtype`                   | Especifica el tipo de datos de las columnas del DataFrame.                        |
+| `na_values`               | Especifica los valores que se interpretarán como valores faltantes (`NaN`).       |
+| `parse_dates`             | Especifica las columnas que se deben analizar como fechas.                        |
+| `infer_datetime_format`   | Si se analizan las fechas, se intentará inferir el formato de fecha automáticamente. |
+| `skiprows`                | Especifica el número de filas que se saltarán desde la parte superior del archivo CSV. |
+| `nrows`                   | Especifica el número de filas que se cargarán desde el archivo CSV.               |
+| `skip_blank_lines`        | Si se encuentra una fila vacía, se saltará o no.                                  |
+| `comment`                 | Especifica el caracter que se utilizará para denotar comentarios en el archivo CSV. |
+| `encoding`                | Especifica la codificación de caracteres utilizada en el archivo CSV.             |
+| `compression`             | Especifica el tipo de compresión utilizado en el archivo CSV, como `"gzip"` o `"zip"`. |
+| `thousands`               | Especifica el separador de miles utilizado en el archivo CSV.                     |

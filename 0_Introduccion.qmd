@@ -1,0 +1,26 @@
+---
+title: "Introducción"
+format:
+  html:
+    code-fold: true
+jupyter: python3
+---
+
+# Disclaimer
+
+El objetivo de este curso es el ilustrar cómo se realiza analisis de datos de forma secuencial y consistente utilizando las principales librerías que ofrece `Python`. Entre ellas, la más importante es `pandas`.
+
+Tenque que advertir, sin embargo, que soy un fanático del ecosistema `tidyverse` de `R` que, realmente creo, no tiene comparación alguna en cuanto a la velocidad, consistencia y elegancia con la cual permite entender un conjunto de datos. Por tanto, mi aproximación a `pandas` es más bien escéptica, como algo que "se tiene que hacer" para aprovechar _todas_ las ventajas que ofrece el lenguaje y, donde creo, le saca bastante ventaja a `R`: integración, _deployment_ y mantenimiento. Es decir, veo a `pandas` como el niño que tiene que tomar la sopa de verduras antes de llegar al postre.
+
+# Datos
+
+A lo largo de este "curso" de análisis de datos, vamos a utilizar un conjunto de datos que nos permitirá ilustrar distintas técnicas, [Credit Card Approval Prediction](https://www.kaggle.com/datasets/rikdifos/credit-card-approval-prediction/discussion/119320), que contiene información sobre solicitudes de tarjetas de crédito y la evolución de las aprobadas.
+
+
+Habiendo dicho esto, espero que esta jornada sea enriquecedora y divertida.
+
+# Bibliografía
+
+Las siguientes piezas documentales se basan enteramente en el texto _Python for Data Analysis_ de Wes McKinney, el creador y uno de los grandes contribuyentes de la librería:
+
+* _McKinney, W. (2023). Python for data analysis: Data wrangling with pandas, NumPy, and Jupyter. " O'Reilly Media, Inc."._

@@ -1,0 +1,171 @@
+---
+title: "Estructuras"
+format:
+  html:
+    code-fold: true
+jupyter: python3
+---
+
+
+
+
+## Lista
+
+La clase `list` en Python representa una secuencia mutable y ordenada de elementos separados por comas y encerrados entre corchetes `[]`. Algunos de los métodos más utilizados son:
+
+- `append(x)`: agrega el elemento `x` al final de la lista:
+
+```{python}
+mi_lista = [1, 2, "tres", True]
+mi_lista.append("cuatro")
+print(mi_lista) # [1, 2, "tres", True, "cuatro"]
+```
+
+
+
+- `extend(iterable)`: agrega los elementos del iterable al final de la lista.
+
+```{python}
+mi_lista.extend([5, 6])
+print(mi_lista)
+```
+
+- `insert(i, x)`: inserta el elemento `x` en la posición `i`.
+
+```{python}
+mi_lista.insert(2, "nuevo")
+print(mi_lista) 
+```
+
+
+- `pop([i])`: elimina y devuelve el elemento en la posición `i` (o el último elemento si no se especifica `i`).
+
+```{python}
+mi_lista.pop()
+print(mi_lista) 
+```
+
+- `remove(x)`: elimina la primera ocurrencia del elemento `x`.
+
+```{python}
+mi_lista.remove("tres")
+print(mi_lista)
+```
+
+- `reverse()`: invierte el orden de los elementos en la lista.
+
+```{python}
+mi_lista.reverse()
+print(mi_lista)
+```
+
+- `sort(key=None, reverse=False)`: ordena los elementos de la lista (opcionalmente utilizando una función `key` para especificar el criterio de ordenamiento).
+
+```{python}
+mi_lista.sort()
+print(mi_lista) 
+```
+
+
+## Tupla
+
+La clase `tuple` en Python representa una secuencia inmutable y ordenada de elementos separados por comas y encerrados entre paréntesis `()`. Algunos de los métodos que admite son:
+
+- `count(x)`: devuelve el número de veces que el elemento `x` aparece en la tupla.
+- `index(x)`: devuelve la posición de la primera ocurrencia del elemento `x`.
+
+```python
+mi_tupla = (1, 2, "tres", True)
+print(mi_tupla.count(1)) # 1
+print(mi_tupla.index("tres")) # 2
+```
+
+
+## Diccionario
+
+La clase `dict` en Python representa una colección mutable y no ordenada de pares clave-valor encerrados entre llaves `{}`. Algunos de los métodos más utilizados son:
+
+- `clear()`: elimina todos los elementos del diccionario.
+- `get(key[, default])`: devuelve el valor asociado a la clave `key`, o `default` si la clave no existe.
+- `items()`: devuelve una vista iterable de los pares clave-valor del diccionario.
+- `keys()`: devuelve una vista iterable de las claves del diccionario.
+- `pop(key[, default])`: elimina y devuelve el valor asociado a la clave `key`, o `default` si la clave no existe.
+- `update(iterable)`: actualiza el diccionario con los pares clave-valor del iterable.
+- `values()`: devuelve una vista iterable de los valores del diccionario.
+
+```python
+mi_diccionario = {"nombre": "Juan", "edad": 30, "ciudad": "Madrid"}
+mi_diccionario.clear()
+print(mi_diccionario) # {}
+mi_diccionario = {"nombre": "Juan", "edad": 30, "ciudad": "Madrid"}
+print(mi_diccionario.get("nombre")) # "Juan"
+print(mi_diccionario.get("apellido", "Desconocido")) # "Desconocido"
+print(mi_diccionario.items()) # dict_items([('nombre', 'Juan'), ('edad', 30), ('ciudad', 'Madrid')])
+print(mi_diccionario.keys()) # dict_keys(['nombre', 'edad', 'ciudad'])
+print(mi_diccionario.pop("edad")) # 30
+print(mi_diccionario) # {"nombre": "Juan", "ciudad": "Madrid"}
+mi_diccionario.update({"edad": 30, "profesion": "programador"})
+print(mi_diccionario) # {"nombre": "Juan", "ciudad": "Madrid", "edad": 30, "profesion": "programador"}
+print(mi_diccionario.values()) # dict_values(['Juan', 'Madrid', 30, 'programador'])
+```
+
+
+## Conjunto
+
+La clase `set` en Python representa una colección mutable y no ordenada de elementos únicos encerrados entre llaves `{}`. Algunos de los métodos más utilizados son:
+
+- `add(x)`: agrega el elemento `x` al conjunto.
+- `clear()`: elimina todos los elementos del conjunto.
+- `difference(iterable)`: devuelve un conjunto con los elementos que están en el conjunto pero no en el iterable.
+- `intersection(iterable)`: devuelve un conjunto con los elementos que están en ambos conjuntos.
+- `remove(x)`: elimina el elemento `x` del conjunto.
+- `union(iterable)`: devuelve un conjunto con los elementos de ambos conjuntos (eliminando duplicados).
+
+```python
+mi_conjunto = {1, 2, "tres", True}
+mi_conjunto.add("cuatro")
+print(mi_conjunto) # {1, 2, "tres", True, "cuatro"}
+mi_conjunto.clear()
+print(mi_conjunto) # set()
+mi_conjunto1 = {1, 2, 3, 4, 5}
+mi_conjunto2 = {3, 4, 5, 6, 7}
+print(mi_conjunto1.difference(mi_conjunto2)) # {1, 2}
+print(mi_conjunto1.intersection(mi_conjunto2)) # {3, 4, 5}
+mi_conjunto1.remove(1)
+print(mi_conjunto1) # {2, 3, 4, 5}
+print(mi_conjunto1.union(mi_conjunto2)) # {2, 3, 4, 5, 6, 7}
+```
+
+
+## Cadena de caracteres
+
+La clase `str` en Python representa una cadena inmutable de caracteres encerrados entre comillas simples o dobles `' '` o `" "`. Algunos de los métodos más utilizados son:
+
+- `capitalize()`: devuelve una copia de la cadena con la primera letra en mayúscula.
+- `count(sub[, start[, end]])`: devuelve el número de ocurrencias de la subcadena `sub`.
+- `find(sub[, start[, end]])`: devuelve el índice de la primera ocurrencia de la subcadena `sub`, o -1 si no se encuentra.
+- `lower()`: devuelve una copia de la cadena en minúsculas.
+- `replace(old, new[, count])`: devuelve una copia de la cadena con todas las ocurrencias de `old` reemplazadas por `new`.
+- `split([sep[, maxsplit]])`: devuelve una lista de subcadenas separadas por `sep`.
+- `strip([chars])`: devuelve una copia de la cadena sin los caracteres especificados en `chars` al principio o al final.
+
+```python
+mi_cadena = "Hola, ¿cómo estás?"
+print(mi_cadena.capitalize()) # "Hola, ¿cómo estás?"
+print(mi_cadena.count("o")) # 3
+print(mi_cadena.find("cómo")) # 7
+print(mi_cadena.lower()) # "hola, ¿cómo estás?"
+print(mi_cadena.replace("Hola", "Adiós")) # "Adiós, ¿cómo estás?"
+print(mi_cadena.split()) # ["Hola,", "¿cómo", "estás?"]
+print(mi_cadena.strip("H")) # "ola, ¿cómo estás?"
+```
+
+
+
+| Estructura de Datos | Descripción | Ejemplo |
+| --- | --- | --- |
+| Listas | Secuencia mutable y ordenada de elementos separados por comas y encerrados entre corchetes `[]` | `mi_lista = [1, 2, "tres", True]` |
+| Tuplas | Secuencia inmutable y ordenada de elementos separados por comas y encerrados entre paréntesis `()` | `mi_tupla = (1, 2, "tres", True)` |
+| Diccionarios | Colección mutable y no ordenada de pares clave-valor encerrados entre llaves `{}` | `mi_diccionario = {"nombre": "Juan", "edad": 30, "ciudad": "Madrid"}` |
+| Conjuntos | Colección mutable y no ordenada de elementos únicos encerrados entre llaves `{}` | `mi_conjunto = {1, 2, "tres", True}` |
+| Strings | Cadena inmutable de caracteres encerrados entre comillas simples o dobles `' '` o `" "` | `mi_string = "Hola Mundo"` |
